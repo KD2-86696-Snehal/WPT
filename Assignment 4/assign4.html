@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>calculator</title>
+</head>
+<body>
+    <center>
+        <h2><b><u>Calculator</u></b></h2>
+        <br/>
+        <br/>
+        Enter Number 1 <input type="number" id="num1">
+        <br/><br/><br/>
+        <div id ="errdiv1" value="" style="color: red;"></div>
+        <br/><br/><br/>
+        Enter Number 2 <input type="number" id="num2">
+        <br/><br/><br/>
+        <div id ="errdiv2" value="" style="color: red;"></div>
+        <br/><br/><br/>
+        result<div style="height:20px; width:200px; border:1px solid black" id="mydiv1"></div>
+        <input type="button" value="Addition" id="add"onclick=takeaction(event)>
+        <input type="button" value="Substraction" id="sub" onclick=takeaction(event)>
+        <input type="button" value="Multiplication" id="mul" onclick=takeaction(event)>
+        <input type="button" value="division" id="div"onclick=takeaction(event)>
+        <script>
+           
+            function takeaction()
+            {
+                //debugger;
+            var buttonId=event.target.id;
+                
+                if(buttonId=="add")
+            {
+                addition("num1","num2","mydiv1");
+            }
+
+            else if(buttonId=="sub")
+            {
+                substraction("num1","num2","mydiv1");
+            }
+
+            else if(buttonId=="mul")
+            {
+                multiplication("num1","num2","mydiv1");
+            }
+            
+            else if(buttonId=="div")
+            {
+                division("num1","num2","mydiv1");
+            }
+                
+            // if(document.getElementById("add"))
+            // {
+            //     addition("num1","num2","mydiv1");
+            // }
+
+            // else if(document.getElementById("sub"))
+            // {
+            //     substraction("num1","num2","mydiv1");
+            // }
+
+            // else if(document.getElementById("mul"))
+            // {
+            //     multiplication("num1","num2","mydiv1");
+            // }
+            // else(document.getElementById("div"))
+            // {
+            //     division("num1","num2","mydiv1");
+            // }
+            }
+            function addition(id1,id2,divid)
+            {
+                
+                var sum=0;
+                // var reftoinput1=0;
+                // var reftoinput2=0;
+                const reftoinput1=parseFloat(document.getElementById(id1).value);
+                console.log(typeof(reftoinput1));
+                const reftoinput2=parseFloat(document.getElementById(id2).value);
+
+            //     const number1 = parseFloat(document.getElementById(id1).value);
+            // const number2 = parseFloat(document.getElementById(id2).value);
+                var reftomydiv=document.getElementById(divid);
+                // sum=number1+number2;
+                sum=reftoinput1 + reftoinput2;
+                //sum=1+1;
+                console.log(sum);
+                reftomydiv.innerText=sum;
+                
+
+            }
+
+            function substraction(id1,id2,divid)
+            {
+                var subs=0;
+                const reftoinput1=parseFloat(document.getElementById(id1).value);
+                
+                const reftoinput2=parseFloat(document.getElementById(id2).value);
+                var reftomydiv=document.getElementById(divid);
+
+                subs=reftoinput1 - reftoinput2;
+                reftomydiv.innerText=subs;
+
+            }
+
+            function multiplication(id1,id2,divid)
+            {
+                var multi=1;
+                const reftoinput1=parseFloat(document.getElementById(id1).value);
+                
+                const reftoinput2=parseFloat(document.getElementById(id2).value);
+                var reftomydiv=document.getElementById(divid);
+
+                multi=reftoinput1*reftoinput2;
+                reftomydiv.innerText=multi;
+
+            }
+
+            function division(id1,id2,divid)
+            {
+                var div=1;
+                const reftoinput1=parseFloat(document.getElementById(id1).value);
+                
+                const reftoinput2=parseFloat(document.getElementById(id2).value);
+                var reftomydiv=document.getElementById(divid);
+                if(reftoinput2!=0){
+
+                div=reftoinput1/reftoinput2;
+                reftomydiv.innerText=div;
+                }
+                else{
+
+                }
+
+            }
+
+
+
+
+        </script>
+
+
+
+
+    </center>
+    
+</body>
+</html>
