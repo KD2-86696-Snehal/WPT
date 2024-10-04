@@ -10,14 +10,16 @@
         <br/>
         <br/>
         Enter Number 1 <input type="number" id="num1">
-        <br/><br/><br/>
+        <br/>
+        
         <div id ="errdiv1" value="" style="color: red;"></div>
-        <br/><br/><br/>
+        <br/><br/>
         Enter Number 2 <input type="number" id="num2">
-        <br/><br/><br/>
+        <br/><br/>
         <div id ="errdiv2" value="" style="color: red;"></div>
-        <br/><br/><br/>
+        <br/>
         result<div style="height:20px; width:200px; border:1px solid black" id="mydiv1"></div>
+        <br/>
         <input type="button" value="Addition" id="add"onclick=takeaction(event)>
         <input type="button" value="Substraction" id="sub" onclick=takeaction(event)>
         <input type="button" value="Multiplication" id="mul" onclick=takeaction(event)>
@@ -31,7 +33,7 @@
                 
                 if(buttonId=="add")
             {
-                addition("num1","num2","mydiv1");
+                addition("num1","num2","mydiv1","errdiv1","errdiv2","field cananot be empty");
             }
 
             else if(buttonId=="sub")
@@ -68,24 +70,45 @@
             //     division("num1","num2","mydiv1");
             // }
             }
-            function addition(id1,id2,divid)
+            function addition(id1,id2,divid,divid1,divid2,errormsg)
             {
-                
+                //debugger;
                 var sum=0;
                 // var reftoinput1=0;
                 // var reftoinput2=0;
-                const reftoinput1=parseFloat(document.getElementById(id1).value);
+                var reftoinput1=parseFloat(document.getElementById(id1).value);
                 console.log(typeof(reftoinput1));
-                const reftoinput2=parseFloat(document.getElementById(id2).value);
+                var reftoresultdiv=document.getElementById(divid);
+                var reftomydiv=document.getElementById(divid1);
+
+                if(isNaN(reftoinput1))
+            {
+                reftomydiv.innerText=errormsg;
+            }
+            else{
+                reftomydiv.innerText="";
+            }
+
+
+                var reftoinput2=parseFloat(document.getElementById(id2).value);
+                var reftomydiv2=document.getElementById(divid2);
+
+                if(isNaN(reftoinput2))
+            {
+                reftomydiv2.innerText=errormsg;
+            }
+            else{
+                reftomydiv2.innerText="";
+            }
 
             //     const number1 = parseFloat(document.getElementById(id1).value);
             // const number2 = parseFloat(document.getElementById(id2).value);
-                var reftomydiv=document.getElementById(divid);
+               // var reftomydiv=document.getElementById(divid);
                 // sum=number1+number2;
                 sum=reftoinput1 + reftoinput2;
                 //sum=1+1;
                 console.log(sum);
-                reftomydiv.innerText=sum;
+                reftoresultdiv.innerText=sum;
                 
 
             }
