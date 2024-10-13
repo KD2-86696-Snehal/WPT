@@ -28,7 +28,8 @@
                 Name:
             </td>
             <td>
-                <input type="text"placeholder="Enter Name">
+                <input type="text" id="txtname"placeholder="Enter Name">
+                <div id="namediv" style="color:red"></div>
             </td>
             
         </tr>
@@ -42,13 +43,17 @@
         <tr>
             <td>Email</td>
             <td>
-            <input type="email" placeholder="abc@gmail.com"> </td>
+            <input type="email" id="email" placeholder="abc@gmail.com"> 
+            <div id="emaildiv" style="color:red"></div>
+        </td>
            
         </tr>
         <tr>
             <td>password</td>
             <td>
-                <input type="password" placeholder="password"/>
+                <input type="password" id="pass" placeholder="password"/>
+                <div id="passdiv" style="color:red"></div>
+
 
             </td>
            
@@ -121,7 +126,7 @@
         </tr>
         <tr>
             <td>
-                <input type="Button" value="Register">
+                <input type="Button" value="Register" onclick="dovalidation()">
             </td>
             <td>
                 <input type="Button" value="clear">
@@ -132,6 +137,31 @@
        </table>
     </div>
 </div>
+<script>
+    function dovalidation()
+    {
+        checkerror("txtname","namediv","feild cannot be empty");
+        checkerror("email","emaildiv","feild cannot be empty");
+        checkerror("pass","passdiv","feild cannot be empty");
+
+    }
+    function checkerror(input,divid,errormsg)
+    {
+       debugger;
+        var reftosomeinput=document.getElementById(input);
+        var reftodiv=document.getElementById(divid);
+
+        if (!reftosomeinput.value.endsWith("@gmail.com")) 
+    {
+        reftodiv.innerText=errormsg;
+    }
+    
+    {
+        reftodiv.innerText="";
+    }
+    }
+
+</script>
  
    
 </body>
